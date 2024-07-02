@@ -9,6 +9,13 @@ import AdminLogin from './components/pages/adminLogin'
 import SellerLogin from './components/pages/sellerLogin'
 import SellerSignup from './components/pages/sellerSignup'
 import User from './components/pages/user'
+import AdminPage from './components/pages/admin'
+import SellerPage from './components/pages/seller'
+import UserOrder from './components/pages/userOrders'
+import Adminorder from './components/pages/adminOrders'
+import SellerOrder from './components/pages/sellerOrder'
+import SellerBook from './components/pages/sellerBooks'
+import AdminBooks from './components/pages/adminBooks'
 function App() {
   return (
   <BrowserRouter>
@@ -30,6 +37,20 @@ function App() {
       <Route path='/sellersignup' element={<SellerSignup></SellerSignup>}>
       </Route>
       <Route path='/user' element={<User></User>}>
+      </Route>
+      <Route path='/admin' element={<AdminPage></AdminPage>}>
+      </Route>
+      <Route path='/seller' element={<SellerPage></SellerPage>}>
+      </Route>
+      <Route path='/userorders' element={<UserOrder></UserOrder>}>
+      </Route>
+      <Route path='/adminorders' element={<Adminorder></Adminorder>}>
+      </Route>
+      <Route path='/sellerorders' element={<SellerOrder></SellerOrder>}>
+      </Route>
+      <Route path='/sellerbooks' element={<SellerBook></SellerBook>}>
+      </Route>
+      <Route path='/adminbooks' element={<AdminBooks></AdminBooks>}>
       </Route>
     </Routes>
   </BrowserRouter>
