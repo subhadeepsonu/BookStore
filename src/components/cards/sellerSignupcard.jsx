@@ -1,25 +1,56 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Input } from '../ui/input'
 import { Label } from '../ui/label'
 import { Button } from '../ui/button'
 import { Link } from 'react-router-dom'
+import { useMutation } from '@tanstack/react-query'
+import axios from 'axios'
 
 export default function SellerSignUpCard(){
+    const [name,setName]=useState("")
+    const [email,setEmail]= useState("")
+    const [password,setPassword]= useState("")
+    const MutateSellerSignup = useMutation({
+        mutationFn: async ()=>{
+            const data = await axios.post("http://localhost:3000/seller/signup",{
+                name:name,
+                email:email,
+                password:password
+            })
+            return data.data
+        },
+        onSettled:(data,error)=>{
+            if(data){
+                console.log(data)
+            }
+            if(error){
+                console.log(error)
+            }
+        }
+    })
     return <div className='h-96 w-96 border-2 rounded-lg border-zinc-300 shadow-md flex-col  flex justify-around items-center'>
             <p className='text-3xl font-semibold'>Seller Sign Up</p>
         <div className='flex-col  w-11/12'>
         <Label>Shop Name</Label>
-        <Input   className=""></Input>
+        <input onChange={(e)=>{
+            setName(e.target.value)
+        }} className='block py-2 w-full border-2 border-gray-300 rounded-lg'></input>
         </div>
         <div className='flex-col  w-11/12'>
         <Label>Email</Label>
-        <Input   className=""></Input>
+        <input onChange={(e)=>{
+            setEmail(e.target.value)
+        }} className='block py-2 w-full border-2 border-gray-300 rounded-lg'></input>
         </div>
         <div className='flex-col  w-11/12'>
         <Label>Password</Label>
-        <Input className=""></Input>
+        <input onChange={(e)=>{
+            setPassword(e.target.value)
+        }} className='block py-2 w-full border-2 border-gray-300 rounded-lg'></input>
         </div>
-        <Link className='hover:underline' to={"/login"}>Already a member!Login</Link>
-        <Button>Sign Up</Button>
+        <Link className='hover:underline' to={"/sellerlogin"}>Already a member!Login</Link>
+        <button onClick={()=>{
+            MutateSellerSignup.mutate()
+        }} className='disabled:bg-gray-600 p-2 bg-zinc-800 text-white rounded-lg px-3 text-center'>Login</button>
     </div>
 }

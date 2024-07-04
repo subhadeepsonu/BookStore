@@ -1,7 +1,6 @@
 import React from "react";
 import Cookies from 'universal-cookie';
 import {jwtDecode} from "jwt-decode"
-import BookCard from "./bookCard";
 export default function UserCard(){
     const cookie = new Cookies()
     const token = cookie.get('token')
