@@ -16,8 +16,11 @@ import Adminorder from './components/pages/adminOrders'
 import SellerOrder from './components/pages/sellerOrder'
 import SellerBook from './components/pages/sellerBooks'
 import AdminBooks from './components/pages/adminBooks'
+import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 function App() {
+  const queryClient = new QueryClient();
   return (
+    <QueryClientProvider client={queryClient}>
   <BrowserRouter>
     <Routes>
       <Route path='/' element={<Landing></Landing>}>
@@ -54,6 +57,7 @@ function App() {
       </Route>
     </Routes>
   </BrowserRouter>
+  </QueryClientProvider>
   )
 }
 
