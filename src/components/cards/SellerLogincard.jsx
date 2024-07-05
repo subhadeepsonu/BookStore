@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import { Label } from '../ui/label'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useMutation } from '@tanstack/react-query'
 import axios from 'axios'
 import Cookies from "universal-cookie"
 export default function SellerLoginCard(){
+    const navigate = useNavigate()
     const cookie = new Cookies()
     const MutateSellerLogin=useMutation({
         mutationFn: async ()=>{
@@ -15,10 +16,15 @@ export default function SellerLoginCard(){
             return data.data
         },
         onSettled:(data,error)=>{
-            if(data){
+            if(data.success){
                 cookie.set('token',data.message)
                 console.log(data)
-            }if(error){
+                navigate("/seller")
+            }
+            if(!data.success){
+                alert(data)
+            }
+            if(error){
                 console.log(error)
             }
         }

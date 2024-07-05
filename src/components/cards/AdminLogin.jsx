@@ -3,7 +3,9 @@ import { Label } from '../ui/label'
 import { useMutation } from '@tanstack/react-query'
 import axios from 'axios'
 import Cookies from "universal-cookie"
+import { useNavigate } from 'react-router-dom'
 export default function AdminLoginCard(){
+    const navigate = useNavigate()
     const [email,setEmail]=useState("")
     const [password,setPassword]=useState("")
     const cookie = new Cookies()
@@ -18,6 +20,7 @@ export default function AdminLoginCard(){
         onSettled:(data,error)=>{
             if(data){
                 cookie.set('token',data.message)
+                navigate('/admin')
                 console.log(data)
             }if(error){
                 console.log(error)

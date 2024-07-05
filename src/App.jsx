@@ -9,14 +9,13 @@ import AdminLogin from './components/pages/adminLogin'
 import SellerLogin from './components/pages/sellerLogin'
 import SellerSignup from './components/pages/sellerSignup'
 import User from './components/pages/user'
-import AdminPage from './components/pages/admin'
-import SellerPage from './components/pages/seller'
 import UserOrder from './components/pages/userOrders'
 import Adminorder from './components/pages/adminOrders'
 import SellerOrder from './components/pages/sellerOrder'
 import SellerBook from './components/pages/sellerBooks'
 import AdminBooks from './components/pages/adminBooks'
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
+import Addproduct from './components/cards/Addproduct'
 function App() {
   const queryClient = new QueryClient();
   return (
@@ -41,9 +40,9 @@ function App() {
       </Route>
       <Route path='/user' element={<User></User>}>
       </Route>
-      <Route path='/admin' element={<AdminPage></AdminPage>}>
+      <Route path='/admin' element={<AdminBooks></AdminBooks>}>
       </Route>
-      <Route path='/seller' element={<SellerPage></SellerPage>}>
+      <Route path='/seller' element={<SellerBook></SellerBook>}>
       </Route>
       <Route path='/userorders' element={<UserOrder></UserOrder>}>
       </Route>
@@ -53,8 +52,7 @@ function App() {
       </Route>
       <Route path='/sellerbooks' element={<SellerBook></SellerBook>}>
       </Route>
-      <Route path='/adminbooks' element={<AdminBooks></AdminBooks>}>
-      </Route>
+      <Route path='/addproduct' element={<Addproduct></Addproduct>}></Route>
     </Routes>
   </BrowserRouter>
   </QueryClientProvider>

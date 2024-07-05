@@ -3,6 +3,7 @@ import Cookies from 'universal-cookie';
 import {jwtDecode} from "jwt-decode"
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import BookCard from "./bookCard";
 export default function UserCard(){
     const cookie = new Cookies()
     const token = cookie.get('token')
@@ -25,22 +26,11 @@ export default function UserCard(){
     </div>
     }
 return <div className="flex justify-center items-start">    
-    {JSON.stringify(BooksQuery.data)}
+    
     <div className="min-h-screen w-full grid grid-cols-4 gap-5 ">
-        {/* <BookCard></BookCard>
-        <BookCard></BookCard>
-        <BookCard></BookCard>
-        <BookCard></BookCard>
-        <BookCard></BookCard>
-        <BookCard></BookCard>
-        <BookCard></BookCard>
-        <BookCard></BookCard>
-        <BookCard></BookCard>
-        <BookCard></BookCard>
-        <BookCard></BookCard>
-        <BookCard></BookCard>
-        <BookCard></BookCard>
-        <BookCard></BookCard> */}
+       {BooksQuery.data.message.map((book)=>{
+        return <BookCard seller={book.seller} imgurl={book.imgurl} name={book.name} author={book.author} id={book._id}  ></BookCard>
+       })}
 
     </div>
     </div>

@@ -2,11 +2,12 @@ import React, { useState } from 'react'
 import { Input } from '../ui/input'
 import { Label } from '../ui/label'
 import { Button } from '../ui/button'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useMutation } from '@tanstack/react-query'
 import axios from 'axios'
 
 export default function SellerSignUpCard(){
+    const navigate = useNavigate()
     const [name,setName]=useState("")
     const [email,setEmail]= useState("")
     const [password,setPassword]= useState("")
@@ -22,6 +23,7 @@ export default function SellerSignUpCard(){
         onSettled:(data,error)=>{
             if(data){
                 console.log(data)
+                navigate("/seller")
             }
             if(error){
                 console.log(error)
