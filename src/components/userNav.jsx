@@ -9,6 +9,9 @@ export default function UserNav(){
             BookNest
         </div>
         <div className="w-1/3 h-full flex justify-around items-center">
+        <Link to={"/wishlist"}>
+            Wishlist
+            </Link>
             <Link to={"/user"}>
             Books
             </Link>

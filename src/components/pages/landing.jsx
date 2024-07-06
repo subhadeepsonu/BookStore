@@ -41,8 +41,8 @@ export default function Landing() {
     }
     return <div className='h-screen w-full flex flex-col justify-start items-center pt-20'>
         <Navbar />
-        <p className='w-full pl-20 pb-5 text-4xl font-semibold'>Books we offer!</p>
-        <div className='grid grid-cols-4 gap-5'>
+        <p className='w-full text-center pb-5 text-4xl font-semibold'>Books we offer!</p>
+        <div className='grid grid-cols-3 gap-5'>
             {data.message.map((book)=>{
                 return <NonUserBookCard imgurl={book.imgurl} name={book.name} author={book.author}></NonUserBookCard>
             })}

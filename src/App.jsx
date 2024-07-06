@@ -14,6 +14,7 @@ import SellerBook from './components/pages/sellerBooks'
 import AdminBooks from './components/pages/adminBooks'
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import Addproduct from './components/cards/Addproduct'
+import Wishlist from './components/pages/wishlist'
 function App() {
   const queryClient = new QueryClient();
   return (
@@ -47,6 +48,9 @@ function App() {
       <Route path='/sellerbooks' element={<SellerBook></SellerBook>}>
       </Route>
       <Route path='/addproduct' element={<Addproduct></Addproduct>}></Route>
+      <Route path='/wishlist' element={<Wishlist></Wishlist>}>
+
+      </Route>
     </Routes>
   </BrowserRouter>
   </QueryClientProvider>

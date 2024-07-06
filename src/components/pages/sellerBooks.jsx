@@ -35,14 +35,14 @@ export default function SellerBook(){
                     loading...
                 </div>
             }
-            return <div className="h-screen w-full flex justify-center items-start pt-20">
+            return <div className="min-h-screen pb-10 w-full flex justify-center items-start pt-20">
                 <SellerNav></SellerNav>
                 <button className="bg-black text-white px-3 py-2 rounded-lg flex justify-center items-center fixed bottom-4 right-5" onClick={()=>{
                     navigate("/addproduct")
                 }}>Add Book</button>
-                <div className="grid grid-cols-4"> 
-                    {SellerBooksQuery.data.message.map((book)=>{
-                        return <NonUserBookCard imgurl={book.imgurl} name={book.name} author={book.author} ></NonUserBookCard>
+                <div className="grid grid-cols-4 gap-5"> 
+                    {SellerBooksQuery.data.message.map((book,index)=>{
+                        return <NonUserBookCard key={index} id={book._id} price={book.price} imgurl={book.imgurl} name={book.name} author={book.author} ></NonUserBookCard>
                     })}
                 </div>
             </div>

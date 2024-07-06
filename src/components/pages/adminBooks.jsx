@@ -33,9 +33,12 @@ export default function AdminBooks(){
             }
             return <div className="h-screen w-full flex justify-center items-start pt-20">
                 <AdminNav></AdminNav>
+                <button className="bg-black text-white px-3 py-2 rounded-lg flex justify-center items-center fixed bottom-4 right-5" onClick={()=>{
+                    navigate("/addproduct")
+                }}>Add Book</button>
                 <div className="grid grid-cols-4 gap-5">
                 {QueryAdminBooks.data.message.map((book)=>{
-                    return <NonUserBookCard imgurl={book.imgurl} name={book.name} author={book.author}></NonUserBookCard>
+                    return <NonUserBookCard id={book._id} imgurl={book.imgurl} name={book.name} author={book.author}></NonUserBookCard>
                 })}
                 </div>
             </div>

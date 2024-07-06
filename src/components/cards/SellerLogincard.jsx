@@ -41,7 +41,7 @@ export default function SellerLoginCard(){
         </div>
         <div className='flex-col  w-11/12'>
         <Label>Password</Label>
-        <input onChange={(e)=>{
+        <input type='password' onChange={(e)=>{
             setPassword(e.target.value)
         }} className='block py-2 w-full border-2 border-gray-300 rounded-lg p-2'></input>
         </div>

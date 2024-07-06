@@ -10,7 +10,7 @@ export default  function Addproduct(){
     const cookie = new Cookies()
     const token =  cookie.get('token')
     const decoded = jwtDecode(token)
-    const navigate =useNavigate()
+    const [price,Setprice]=useState(0)
     const [imgurl,setImgurl] = useState("")
     const [name,setName] = useState("")
     const [AuthorName,setAuthorName] = useState("")
@@ -20,7 +20,8 @@ export default  function Addproduct(){
                 name:name,
                 author:AuthorName,
                 imgurl:imgurl,
-                seller:decoded.id
+                seller:decoded.id,
+                price:price
             })
             return data.data
         },
@@ -59,6 +60,10 @@ export default  function Addproduct(){
             <input onChange={(e)=>{
                 setAuthorName(e.target.value)
             }} className="border-2 border-gray-400 w-full rounded-lg p-2" placeholder="author name"></input>
+            <Label className="flex justify-start items-center w-full">price</Label>
+            <input onChange={(e)=>{
+                Setprice(e.target.value)
+            }} className="border-2 border-gray-400 w-full rounded-lg p-2" placeholder="price"></input>
             <button onClick={()=>{
                 MutateAddProduct.mutate()
             }} className="px-3 py-2 bg-black text-white rounded-lg">Done</button>

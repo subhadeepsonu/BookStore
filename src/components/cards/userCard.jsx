@@ -29,9 +29,8 @@ return <div className="flex justify-center items-start">
     
     <div className="min-h-screen w-full grid grid-cols-4 gap-5 ">
        {BooksQuery.data.message.map((book)=>{
-        return <BookCard seller={book.seller} imgurl={book.imgurl} name={book.name} author={book.author} id={book._id}  ></BookCard>
+        return <BookCard price={book.price} seller={book.seller} imgurl={book.imgurl} name={book.name} author={book.author} id={book._id}  ></BookCard>
        })}
-
     </div>
     </div>
 }
