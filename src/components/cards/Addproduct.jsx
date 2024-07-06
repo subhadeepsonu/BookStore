@@ -5,11 +5,12 @@ import axios from "axios";
 import { useState } from "react";
 import { jwtDecode } from "jwt-decode";
 import Cookies from "universal-cookie";
-import { json } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 export default  function Addproduct(){
     const cookie = new Cookies()
     const token =  cookie.get('token')
     const decoded = jwtDecode(token)
+    const navigate =useNavigate()
     const [imgurl,setImgurl] = useState("")
     const [name,setName] = useState("")
     const [AuthorName,setAuthorName] = useState("")
@@ -33,7 +34,7 @@ export default  function Addproduct(){
         }
     })
     return <div className="h-screen  w-full flex justify-center items-center">
-        {JSON.stringify(decoded.id)}
+        
         <SellerNav></SellerNav>
         <div className="h-72  w-80 border-2 border-gray-400 rounded-lg flex flex-col justify-around items-center p-2 ">
         <input type="file"onChange={ async (e)=>{

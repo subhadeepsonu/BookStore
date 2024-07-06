@@ -22,7 +22,7 @@ export default function SellerLoginCard(){
                 navigate("/seller")
             }
             if(!data.success){
-                alert(data)
+                alert(data.message)
             }
             if(error){
                 console.log(error)

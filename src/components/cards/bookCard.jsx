@@ -13,7 +13,8 @@ export default function BookCard(props){
                 seller:props.seller,
                 books:props.id,
                 user:decoded.id,
-                bookname:props.name
+                bookname:props.name,
+                imgurl:props.imgurl
             })
             return data.data
         },
@@ -30,8 +31,8 @@ export default function BookCard(props){
         }
     })
     return <div className='h-80 w-80 flex flex-col justify-around items-center border-2 border-zinc-300 rounded-lg'>
-        <div className='h-48 w-80 border-2 bg-cyan-300 rounded-t-lg border-zinc-300'>
-        <img className='object-cover h-48 w-80 rounded-t-lg' src={props.imgurl}></img>
+        <div className='h-48 w-80 border-2  rounded-t-lg border-zinc-300'>
+        <img className='object-cover h-48 w-80 rounded-t-lg' alt='image' src={props.imgurl}></img>
         </div>
         <div className='flex flex-col justify-around items-center h-32 w-80'>
             <div className=' flex flex-col justify-around items-start  font-semibold w-72 h-16'>

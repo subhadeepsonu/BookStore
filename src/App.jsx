@@ -3,8 +3,6 @@ import {BrowserRouter, Route, Routes} from "react-router-dom"
 import Landing from './components/pages/landing'
 import Login from './components/pages/login'
 import Signup from './components/pages/signup'
-import Cart from './components/pages/cart'
-import Profile from './components/pages/profile'
 import AdminLogin from './components/pages/adminLogin'
 import SellerLogin from './components/pages/sellerLogin'
 import SellerSignup from './components/pages/sellerSignup'
@@ -27,10 +25,6 @@ function App() {
       <Route path='/login' element={<Login></Login>}>
       </Route>
       <Route path='/signup' element={<Signup></Signup>}>
-      </Route>
-      <Route path='/cart' element={<Cart></Cart>}>
-      </Route>
-      <Route path='/profile' element={<Profile></Profile>}>
       </Route>
       <Route path='/adminlogin' element={<AdminLogin></AdminLogin>}>
       </Route>

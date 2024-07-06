@@ -5,8 +5,9 @@ import { Button } from '../ui/button'
 import { Link, useNavigate } from 'react-router-dom'
 import { useMutation } from '@tanstack/react-query'
 import axios from 'axios'
-
+import Cookies from 'universal-cookie'
 export default function SellerSignUpCard(){
+    const cookie = new Cookies()
     const navigate = useNavigate()
     const [name,setName]=useState("")
     const [email,setEmail]= useState("")
@@ -21,9 +22,13 @@ export default function SellerSignUpCard(){
             return data.data
         },
         onSettled:(data,error)=>{
-            if(data){
+            if(data.success){
                 console.log(data)
+                cookie.set('token',data.message)
                 navigate("/seller")
+            }
+            if(!data.success){
+                alert(data.message)
             }
             if(error){
                 console.log(error)
