@@ -4,6 +4,7 @@ import { jwtDecode } from "jwt-decode"
 import { useNavigate } from "react-router-dom"
 import Cookies from "universal-cookie"
 import UserNav from "../userNav"
+import WishlistCard from "../cards/wishlist"
 export default function Wishlist(){
     const cookie = new Cookies()
     const token = cookie.get('token')
@@ -34,22 +35,14 @@ export default function Wishlist(){
                 {data.error}
             </div>
         }
+        
         return <div className="min-h-screen w-full flex flex-col justify-start pt-20 items-center">
             
             <UserNav></UserNav>
             <div className="grid grid-cols-4 gap-5">
             {data.data.message.map((wish)=>{
-                return <div className="h-32 w-80 flex border-2 border-gray-300 rounded-lg">
-                    <div className="h-32 w-32 ">
-                        <img className="w-full h-full" src={wish.imgurl} alt="image">
-                        </img>
-                    </div>
-                    <div className="flex justify-center h-full w-48 items-center">
-                    <p>
-                         {wish.bookname}
-                    </p>
-                    </div>
-                </div>
+                
+                return <WishlistCard id={wish._id} imgurl={wish.imgurl} bookname={wish.bookname}></WishlistCard>
             })}
             </div>
         </div>

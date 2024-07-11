@@ -9,6 +9,8 @@ export default function AdminNav(){
         BookNest
     </div>
     <div className="w-1/3 h-full flex justify-around items-center">
+    <Link to={'/admin/user'}>Users</Link>
+    <Link to={"/admin/seller"}>Seller</Link>
     <Link to={"/admin"}>
     Books
     </Link>

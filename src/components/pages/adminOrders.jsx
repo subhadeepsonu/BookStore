@@ -35,7 +35,7 @@ export default function Adminorder(){
                 <AdminNav></AdminNav>
                 <div className="grid grid-cols-4 gap-5">
                 {QueryAdminOrders.data.message.map((order)=>{
-                   return <OrderCard imgurl={order.imgurl} name={order.bookname} orderedat={order.createdAt.slice(0,10)}></OrderCard>
+                   return <OrderCard id={order._id} imgurl={order.imgurl} name={order.bookname} orderedat={order.createdAt.slice(0,10)}></OrderCard>
                 })}
                 </div>
             </div>

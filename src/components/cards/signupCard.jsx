@@ -9,13 +9,15 @@ export default function SignUpCard(){
     const [name,setName]= useState("")
     const [email,Setemail] = useState("")
     const [password,Setpassword]= useState("")
+    const [address,setAddress] = useState("")
     const cookie = new Cookies()
     const MutateUSerSignUp= useMutation({
         mutationFn: async ()=>{
             const data = await axios.post("http://localhost:3000/user/signup",{
                 name:name,
                 email:email,
-                password:password
+                password:password,
+                address:address
             })
             return data.data
         },
@@ -31,7 +33,7 @@ export default function SignUpCard(){
           }
 
     })
-    return <div className='h-96 w-96 border-2 rounded-lg border-zinc-300 shadow-md flex-col  flex justify-around items-center'>
+    return <div className='h-[400px] w-96 border-2 rounded-lg border-zinc-300 shadow-md flex-col  flex justify-around items-center'>
             <p className='text-3xl font-semibold'>Sign Up</p>
         <div className='flex-col  w-11/12'>
         <Label>Name</Label>
@@ -49,6 +51,10 @@ export default function SignUpCard(){
         <Label>Password</Label>
         <input type='password' onChange={(e)=>{
             Setpassword(e.target.value)
+        }} className='block py-2 w-full border-2 border-gray-300 rounded-lg'></input>
+         <Label>Address</Label>
+        <input onChange={(e)=>{
+            setAddress(e.target.value)
         }} className='block py-2 w-full border-2 border-gray-300 rounded-lg'></input>
         </div>
         <Link className='hover:underline' to={"/login"}>Already a member!Login</Link>

@@ -15,6 +15,8 @@ import AdminBooks from './components/pages/adminBooks'
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import Addproduct from './components/cards/Addproduct'
 import Wishlist from './components/pages/wishlist'
+import AdminUser from './components/pages/adminuser'
+import AdminSeller from './components/pages/adminSeller'
 function App() {
   const queryClient = new QueryClient();
   return (
@@ -49,7 +51,10 @@ function App() {
       </Route>
       <Route path='/addproduct' element={<Addproduct></Addproduct>}></Route>
       <Route path='/wishlist' element={<Wishlist></Wishlist>}>
-
+      </Route>
+      <Route path='/admin/user' element={<AdminUser></AdminUser>}>
+      </Route>
+      <Route path='/admin/seller' element={<AdminSeller></AdminSeller>}>
       </Route>
     </Routes>
   </BrowserRouter>
