@@ -44,7 +44,7 @@ export default function Landing() {
         <p className='w-full text-center pb-5 text-4xl font-semibold'>Books we offer!</p>
         <div className='grid grid-cols-3 gap-5'>
             {data.message.map((book)=>{
-                return <NonUserBookCard imgurl={book.imgurl} name={book.name} author={book.author}></NonUserBookCard>
+                return <NonUserBookCard discription={book.discription} imgurl={book.imgurl} name={book.name} author={book.author}></NonUserBookCard>
             })}
         </div>
     </div>;

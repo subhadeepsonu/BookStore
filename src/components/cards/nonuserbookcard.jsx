@@ -27,11 +27,11 @@ export default function NonUserBookCard(props){
             queryclient.invalidateQueries({queryKey:[]})
         }
     })
-    return <div className="w-80 h-[450px] relative  flex flex-col border-2 border-gray-300 rounded-lg">
+    return <div className="w-80 h-[550px] relative  flex flex-col border-2 border-gray-300 rounded-lg">
         <div onClick={()=>{
             MutateDelete.mutate()
         }} className={`absolute top-1 right-1 cursor-pointer ${(admin)?"":"hidden"}`}><Trash></Trash></div>
-        <div className="w-80 h-4/5">
+        <div className="w-80 h-3/5">
         <img className="w-80 h-full object-contain rounded-t-lg" src={props.imgurl} alt="image">
         </img>
         </div>
@@ -45,6 +45,9 @@ export default function NonUserBookCard(props){
         <p>
             price:{props.price}
         </p>
+        </div>
+        <div className="h-1/5 w-full  pl-2">
+           <p>discription: {props.discription}</p>
         </div>
     </div>
 }

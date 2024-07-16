@@ -42,7 +42,7 @@ export default function SellerBook(){
                 }}>Add Book</button>
                 <div className="grid grid-cols-4 gap-5"> 
                     {SellerBooksQuery.data.message.map((book,index)=>{
-                        return <NonUserBookCard key={index} id={book._id} price={book.price} imgurl={book.imgurl} name={book.name} author={book.author} ></NonUserBookCard>
+                        return <NonUserBookCard discription={book.discription} key={index} id={book._id} price={book.price} imgurl={book.imgurl} name={book.name} author={book.author} ></NonUserBookCard>
                     })}
                 </div>
             </div>

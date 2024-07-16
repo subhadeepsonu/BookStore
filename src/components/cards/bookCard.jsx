@@ -48,9 +48,12 @@ export default function BookCard(props){
             }
         }
     })
-    return <div className='h-[450px] w-80 flex flex-col justify-around items-center border-2 border-zinc-300 rounded-lg'>
-        <div className='h-4/6 w-80 border-2  rounded-t-lg border-zinc-300'>
+    return <div className='h-[550px] w-80 flex flex-col justify-around items-center border-2 border-zinc-300 rounded-lg'>
+        <div className='h-3/6 w-80 border-2  rounded-t-lg border-zinc-300'>
         <img className='object-contain h-full w-80 rounded-t-lg' alt='image' src={props.imgurl}></img>
+        </div>
+        <div className='h-1/6 w-full pl-2'>
+            <p>Discription:{props.discription}</p>
         </div>
         <div className='flex flex-col justify-around items-center h-2/6 w-80'>
             <div className=' flex flex-col justify-around items-start  font-semibold w-72 h-1/2'>

@@ -14,6 +14,7 @@ export default  function Addproduct(){
     const [imgurl,setImgurl] = useState("")
     const [name,setName] = useState("")
     const [AuthorName,setAuthorName] = useState("")
+    const [discription,SetDiscription]=useState("")
     const MutateAddProduct = useMutation({
         mutationFn: async ()=>{
             const data = await axios.post("http://localhost:3000/seller/addbook",{
@@ -21,7 +22,8 @@ export default  function Addproduct(){
                 author:AuthorName,
                 imgurl:imgurl,
                 seller:decoded.id,
-                price:price
+                price:price,
+                discription:discription
             })
             return data.data
         },
@@ -37,7 +39,7 @@ export default  function Addproduct(){
     return <div className="h-screen  w-full flex justify-center items-center">
         
         <SellerNav></SellerNav>
-        <div className="h-72  w-80 border-2 border-gray-400 rounded-lg flex flex-col justify-around items-center p-2 ">
+        <div className="h-96  w-80 border-2 border-gray-400 rounded-lg flex flex-col justify-around items-center p-2 ">
         <input type="file"onChange={ async (e)=>{
           const files = e.target.files
           const data = new FormData()
@@ -64,6 +66,10 @@ export default  function Addproduct(){
             <input onChange={(e)=>{
                 Setprice(e.target.value)
             }} className="border-2 border-gray-400 w-full rounded-lg p-2" placeholder="price"></input>
+            <Label className="flex justify-start items-center w-full">Discription</Label>
+            <input onChange={(e)=>{
+                SetDiscription(e.target.value)
+            }} className="border-2 border-gray-400 w-full rounded-lg p-2" placeholder="Discription"></input>
             <button onClick={()=>{
                 MutateAddProduct.mutate()
             }} className="px-3 py-2 bg-black text-white rounded-lg">Done</button>

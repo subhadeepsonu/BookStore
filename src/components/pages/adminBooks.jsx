@@ -38,7 +38,7 @@ export default function AdminBooks(){
                 }}>Add Book</button>
                 <div className="grid grid-cols-4 gap-5">
                 {QueryAdminBooks.data.message.map((book)=>{
-                    return <NonUserBookCard id={book._id} imgurl={book.imgurl} name={book.name} author={book.author}></NonUserBookCard>
+                    return <NonUserBookCard discription={book.discription} id={book._id} imgurl={book.imgurl} name={book.name} author={book.author}></NonUserBookCard>
                 })}
                 </div>
             </div>
